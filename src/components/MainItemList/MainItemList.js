@@ -1,54 +1,82 @@
 import React from "react";
-import Store from "../../store";
 import config from "../../config";
 
 export default class MainPage extends React.Component {
   state = {
     option: "all",
-    items: []
+    items: [],
   };
 
-  componentDidMount(){
+  componentDidMount() {
     fetch(`${config.API_ENDPOINT}/api/items`)
-      .then(res=>{
-        if(!res.ok){
-            throw new Error(res.statusText)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(res.statusText);
         }
-        return res.json()
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        this.setState({ items: data });
+      })
+      .catch((err) => err.message);
+  }
+
+  handleDeleteRequest(e,id){
+    e.preventDefault();
+    fetch(`${config.API_ENDPOINT}/api/items/${id}`,{
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
     })
-    .then(data=>{
-      console.log(data)
-      this.setState({items:data})
-    })
-    .catch(err=>err.message)
-    
-    
-  } 
+      .then(res=>{
+        if(!res.ok)
+          return res.json().then(e=>Promise.reject(e))
+      })
+      .then(()=>{
+        this.handleDeleteItem(id)
+      })
+      .catch(e=>console.log({e}))
+     
+  }
   handleDisplayType = (type) => () => {
     this.setState({
       option: type,
     });
   };
 
-  render() {
+  handleDeleteItem = (id) => {
+    this.setState({
+      items: this.state.items.filter((items) => items.id !== id),
+    });
+  };
 
+
+  render() {
+    console.log(this.state.items)
     const data =
       this.state.option === "all"
         ? this.state.items.map((x) => (
             <li>
-              <img src={x.img} />, {x.name}, {x.date}
+              <img alt={x.name} src={x.img} /> {x.name} {x.date}{" "}
+              <span onClick={(e) => this.handleDeleteRequest(e,x.id)}>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </span>
             </li>
           ))
         : this.state.items
             .filter((m) => m.type === this.state.option)
             .map((x) => (
               <li>
-                <img src={x.img}/>, {x.name}, {x.date}
+                <img alt={x.name} src={x.img} /> {x.name} {x.date}{" "}
+                <span onClick={(e) => this.handleDeleteRequest(e,x.id)}>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </span>
               </li>
             ));
     return (
       <section>
-
         <div>
           <a onClick={this.handleDisplayType("Bugs")} href="#">
             Bugs

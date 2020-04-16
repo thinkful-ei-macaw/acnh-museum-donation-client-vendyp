@@ -10,7 +10,7 @@ export default class NewItem extends React.Component {
     handleAddItem(name,date){
         fetch(`${config.API_ENDPOINT}/api/items`,{
             method: 'POST',
-            header:{
+            headers:{
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -24,7 +24,9 @@ export default class NewItem extends React.Component {
             }
             return res.json()
         })
-        .then(data=>console.log(data))
+        .then(data=>{
+          console.log(data)
+          this.props.history.push('/')})
         .catch(err=>err.message)
       }
     updateName(name){
@@ -34,15 +36,15 @@ export default class NewItem extends React.Component {
         this.setState({date:{value:date}})
     }
     validateAddItemForm=(e)=>{
-        e.preventDefault()
+        e.preventDefault();
         console.log(this.state.name.value,this.state.date.value)
         const validName = this.state.name.value;
         const validDate = this.state.date.value;
         
         if(validDate && validName){
             this.handleAddItem(this.state.name, this.state.date)
-            this.props.history.push('/')
         }
+        
     }
   render() {
     return (
