@@ -8,7 +8,7 @@ export default class NewItem extends React.Component {
         date:{value:''}
     };
     handleAddItem(name,date){
-        fetch(`${config.API_ENDPOINT}/items`,{
+        fetch(`${config.API_ENDPOINT}/api/items`,{
             method: 'POST',
             header:{
                 'Content-Type': 'application/json'
