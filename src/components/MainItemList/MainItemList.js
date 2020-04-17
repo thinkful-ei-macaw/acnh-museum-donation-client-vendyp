@@ -1,6 +1,6 @@
 import React from "react";
 import config from "../../config";
-
+import TokenService from '../../services/token-service';
 export default class MainPage extends React.Component {
   state = {
     option: "all",
@@ -8,7 +8,11 @@ export default class MainPage extends React.Component {
   };
 
   componentDidMount() {
-    fetch(`${config.API_ENDPOINT}/api/items`)
+    fetch(`${config.API_ENDPOINT}/api/items`, {
+      headers: {
+        'authorization': `basic ${TokenService.getAuthToken()}`,
+      },
+    })
       .then((res) => {
         if (!res.ok) {
           throw new Error(res.statusText);
@@ -27,7 +31,8 @@ export default class MainPage extends React.Component {
     fetch(`${config.API_ENDPOINT}/api/items/${id}`,{
       method: 'DELETE',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'authorization': `basic ${TokenService.getAuthToken()}`,
       },
     })
       .then(res=>{

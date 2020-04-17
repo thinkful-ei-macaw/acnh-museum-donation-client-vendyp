@@ -1,5 +1,6 @@
 import React from "react";
 import config from '../../config'; 
+import TokenService from '../../services/token-service';
 
 export default class NewItem extends React.Component {
 
@@ -11,7 +12,8 @@ export default class NewItem extends React.Component {
         fetch(`${config.API_ENDPOINT}/api/items`,{
             method: 'POST',
             headers:{
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'authorization': `basic ${TokenService.getAuthToken()}`,
             },
             body: JSON.stringify({
                 "name":name.value,
@@ -24,8 +26,7 @@ export default class NewItem extends React.Component {
             }
             return res.json()
         })
-        .then(data=>{
-          console.log(data)
+        .then(()=>{
           this.props.history.push('/')})
         .catch(err=>err.message)
       }

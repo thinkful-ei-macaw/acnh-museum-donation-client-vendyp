@@ -1,41 +1,57 @@
 import React from "react";
 import config from '../../config'; 
+import TokenService from '../../services/token-service';
 
 export default class LoginForm extends React.Component {
+  static defaultProps = {
+    onLoginSuccess: () => {}
+  }
+
   state = {
     username: { value: "" },
-    password: { value: "" }
+    password: { value: "" },
+    error: null
   };
 
-  handleLogin(username, password){
+  handleLogin=(e)=>{
+    e.preventDefault();
+    const username = this.state.username.value
+    const password = this.state.password.value
     fetch(`${config.API_ENDPOINT}/login`,{
         method: 'POST',
         header:{
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            "username":username.value,
-            "password": password.value
+            "username": username,
+            "password": password
         })
     })
     .then(res=>{
         if(!res.ok){
             throw new Error(res.statusText)
         }
-        return res.json()
+        this.handleSubmitBasicAuth(username, password)
+        this.props.history.push('/')
     })
-    .then(data=>console.log(data))
     .catch(err=>err.message)
   }
-  validateInput = (event) => {
-    event.preventDefault();
-    const validateUsername = this.state.username.value;
-    const validatePassword = this.state.password.value;
 
-    if(validateUsername && validatePassword) {
-        this.handleLogin(this.state.username, this.state.password)
-        this.props.history.push('/')
-    } 
+
+
+
+
+handleSubmitBasicAuth = ev => {
+  ev.preventDefault()
+  const { username, password } = ev.target
+
+  TokenService.saveAuthToken(
+    TokenService.makeBasicAuthToken(username.value, password.value)
+  )
+
+  username.value = ''
+  password.value = ''
+  this.props.onLoginSuccess()
 }
 
   updateUsername(username) {
@@ -46,10 +62,11 @@ export default class LoginForm extends React.Component {
   }
 
   render() {
+    const { error } = this.state
     return (
       <div>
         <h1>Login</h1>
-        <form onSubmit={this.validateInput}>
+        <form onSubmit={this.handleLogin}>
           <label htmlFor="username">Username</label>
           <input
             id="username"
