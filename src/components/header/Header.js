@@ -10,6 +10,8 @@ state={
   handleLogoutClick = () => {
     TokenService.clearAuthToken()
     this.updateStatus()
+    console.log(this.props)
+    this.props.history.go('/login')
   };
   updateStatus(){
     this.setState({loggedIn:false})
