@@ -3,20 +3,13 @@ import { Link } from "react-router-dom";
 import TokenService from "../../services/token-service";
 
 export default class Header extends React.Component {
-state={
-  loggedIn:true
-}
+
   
   handleLogoutClick = () => {
     TokenService.clearAuthToken()
-    this.updateStatus()
-    console.log(this.props)
     this.props.history.go('/login')
   };
-  updateStatus(){
-    this.setState({loggedIn:false})
- 
-  };
+
   renderLogoutLink() {
     return (
       <div>
@@ -33,6 +26,13 @@ state={
       </div>
     );
   }
+  renderAddItemLink(){
+    return(
+      <div>
+<Link to="/addItem">Add New Item</Link>
+      </div>
+    )
+  }
 
   render() {
     console.log('rendering...')
@@ -40,7 +40,7 @@ state={
       <section>
         <nav>
           <Link to="/">Home</Link>
-          <Link to="/addItem">Add New Item</Link>
+          {TokenService.hasAuthToken() ? this.renderAddItemLink(): ''}
           {TokenService.hasAuthToken()
             ? this.renderLogoutLink()
             : this.renderLoginLink()}

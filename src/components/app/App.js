@@ -12,13 +12,10 @@ class App extends React.Component {
       <div>
         
         <Router>
-        {/* <Header /> */}
-          {/* <Switch> */}
-          <Route path="/" component={Header} />
+            <Route path="/" component={Header} />
             <Route exact path={"/"} component={MainPage} />
             <Route exact path={"/addItem"} component={AddItemPage} />
             <Route exact path={"/login"} component={LoginPage} />
-          {/* </Switch> */}
         </Router>
       </div>
     );
