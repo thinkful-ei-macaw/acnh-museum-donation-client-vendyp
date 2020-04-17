@@ -10,7 +10,7 @@ export default class MainPage extends React.Component {
   componentDidMount() {
     fetch(`${config.API_ENDPOINT}/api/items`, {
       headers: {
-        'authorization': `basic ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then((res) => {
@@ -32,7 +32,7 @@ export default class MainPage extends React.Component {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        'authorization': `basic ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res=>{

@@ -13,7 +13,7 @@ export default class NewItem extends React.Component {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',
-                'authorization': `basic ${TokenService.getAuthToken()}`,
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
             body: JSON.stringify({
                 "name":name.value,
