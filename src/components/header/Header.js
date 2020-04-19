@@ -44,6 +44,7 @@ export default class Header extends React.Component {
           {TokenService.hasAuthToken()
             ? this.renderLogoutLink()
             : this.renderLoginLink()}
+            <Link to="/register">Register</Link>
         </nav>
         <div>
           <h1>ACNH: Museum Donation Tracker</h1>
