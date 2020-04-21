@@ -1,11 +1,12 @@
 import React from "react";
 import AuthApiService from "../../services/auth-api-service";
 import TokenService from "../../services/token-service";
-
+import "./registerForm.css";
 export default class RegisterForm extends React.Component {
   state = {
     username: { value: "" },
     password: { value: "" },
+    error: null,
   };
 
   handleSubmitJwtAuth = (ev) => {
@@ -34,26 +35,31 @@ export default class RegisterForm extends React.Component {
     this.setState({ password: { value: password } });
   }
   render() {
+    const error = this.state.error;
     return (
-      <form onSubmit={this.handleSubmitJwtAuth}>
-        <label htmlFor="username">Username:</label>
-        <input
-          id="username"
-          name="username"
-          type="text"
-          value={this.state.username.value}
-          onChange={(e) => this.updateUsername(e.target.value)}
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          id="password"
-          name="password"
-          type="text"
-          value={this.state.password.value}
-          onChange={(e) => this.updatePassword(e.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form>
+      <section className="backdrop">
+        <h1 className="centered">Register</h1>
+        <form className="column centered" onSubmit={this.handleSubmitJwtAuth}>
+          <label htmlFor="username">Username:</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            value={this.state.username.value}
+            onChange={(e) => this.updateUsername(e.target.value)}
+          />
+          <label htmlFor="password">Password:</label>
+          <input
+            id="password"
+            name="password"
+            type="text"
+            value={this.state.password.value}
+            onChange={(e) => this.updatePassword(e.target.value)}
+          />
+          <button className="btn" type="submit">Submit</button>
+        </form>
+        <div className="alert">{error}</div>
+      </section>
     );
   }
 }

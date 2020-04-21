@@ -1,10 +1,12 @@
 import React from "react";
 import config from "../../config";
 import TokenService from '../../services/token-service';
+import "./MainItemList.css";
 export default class MainPage extends React.Component {
   state = {
     option: "all",
     items: [],
+    error:null
   };
 
   componentDidMount() {
@@ -20,7 +22,6 @@ export default class MainPage extends React.Component {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         this.setState({ items: data });
       })
       .catch((err) => err.message);
@@ -42,7 +43,7 @@ export default class MainPage extends React.Component {
       .then(()=>{
         this.handleDeleteItem(id)
       })
-      .catch(e=>console.log({e}))
+      .catch((res) => this.setState({ error: res.error }))
      
   }
   handleDisplayType = (type) => () => {
@@ -59,30 +60,30 @@ export default class MainPage extends React.Component {
 
 
   render() {
-    console.log(this.state.items)
+
     const data =
       this.state.option === "all"
         ? this.state.items.map((x) => (
-            <li>
-              <img alt={x.name} src={x.img} /> {x.name} {x.date}{" "}
+            <li key={x.id}>
+              <img  alt={x.name} src={`${config.API_ENDPOINT}/static/img/${x.img}`} /> {x.name} {x.date.split('T')[0]}{" "}
               <span onClick={(e) => this.handleDeleteRequest(e,x.id)}>
-                <i class="fa fa-trash" aria-hidden="true"></i>
+                <i className="fa fa-trash"></i>
               </span>
             </li>
           ))
         : this.state.items
             .filter((m) => m.type === this.state.option)
             .map((x) => (
-              <li>
-                <img alt={x.name} src={x.img} /> {x.name} {x.date}{" "}
+              <li key={x.id}>
+                <img alt={x.name} src={`${config.API_ENDPOINT}/static/img/${x.img}`} /> {x.name} {x.date.split('T')[0]}{" "}
                 <span onClick={(e) => this.handleDeleteRequest(e,x.id)}>
-                  <i class="fa fa-trash" aria-hidden="true"></i>
+                  <i className="fa fa-trash"></i>
                 </span>
               </li>
             ));
     return (
-      <section>
-        <div>
+      <section className="backdrop">
+        <div className="center title-links">
           <a onClick={this.handleDisplayType("Bugs")} href="#">
             Bugs
           </a>
@@ -96,7 +97,7 @@ export default class MainPage extends React.Component {
             All
           </a>
         </div>
-        <div>{data}</div>
+        <div className="center"><ul>{data}</ul></div>
       </section>
     );
   }

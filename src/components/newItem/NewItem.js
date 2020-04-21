@@ -1,56 +1,63 @@
 import React from "react";
-import config from '../../config'; 
-import TokenService from '../../services/token-service';
+import config from "../../config";
+import TokenService from "../../services/token-service";
 
 export default class NewItem extends React.Component {
+  state = {
+    name: { value: "" },
+    date: { value: "" },
+    error: null,
+  };
+  handleAddItem(name, date) {
+    fetch(`${config.API_ENDPOINT}/api/items`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        name: name.value,
+        date: date.value,
+      }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((resJson) => {
 
-    state ={
-        name:{value:''},
-        date:{value:''}
-    };
-    handleAddItem(name,date){
-        fetch(`${config.API_ENDPOINT}/api/items`,{
-            method: 'POST',
-            headers:{
-                'Content-Type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`,
-            },
-            body: JSON.stringify({
-                "name":name.value,
-                "date": date.value
-            })
-        })
-        .then(res=>{
-            if(!res.ok){
-                throw new Error(res.statusText)
-            }
-            return res.json()
-        })
-        .then(()=>{
-          this.props.history.push('/')})
-        .catch(err=>err.message)
-      }
-    updateName(name){
-        this.setState({name:{value:name}})
-    }
-    updateDate(date){
-        this.setState({date:{value:date}})
-    }
-    validateAddItemForm=(e)=>{
-        e.preventDefault();
-        console.log(this.state.name.value,this.state.date.value)
-        const validName = this.state.name.value;
-        const validDate = this.state.date.value;
-        
-        if(validDate && validName){
-            this.handleAddItem(this.state.name, this.state.date)
+        if(resJson.error){
+          this.setState({ error: resJson.error })
         }
-        
+        else{
+          this.props.history.push("/");
+        }
+
+      })
+      .catch((e) => console.log(e) );
+  }
+  updateName(name) {
+    this.setState({ name: { value: name } });
+  }
+  updateDate(date) {
+    this.setState({ date: { value: date } });
+  }
+  validateAddItemForm = (e) => {
+    e.preventDefault();
+    console.log(this.state.name.value, this.state.date.value);
+    const validName = this.state.name.value;
+    const validDate = this.state.date.value;
+
+    if (validDate && validName) {
+      this.handleAddItem(this.state.name, this.state.date);
     }
+  };
   render() {
+    const error = this.state.error;
+    console.log(error)
     return (
-      <form onSubmit={this.validateAddItemForm}>
-        <fieldset>
+      <section className="backdrop">
+        <h1 className="centered">Add New Item!</h1>
+        <form className="column centered" onSubmit={this.validateAddItemForm}>
           <label htmlFor="item">Item:</label>
           <input
             name="item-name"
@@ -59,7 +66,7 @@ export default class NewItem extends React.Component {
             placeholder="e.g. tiger butterfly"
             required
             value={this.state.name.value}
-            onChange={(e)=>this.updateName(e.target.value)}
+            onChange={(e) => this.updateName(e.target.value)}
             aria-required="true"
             aria-label="Input the item you donated."
           />
@@ -71,13 +78,16 @@ export default class NewItem extends React.Component {
             placeholder="03/20/2020"
             required
             value={this.state.date.value}
-            onChange={(e)=>this.updateDate(e.target.value)}
+            onChange={(e) => this.updateDate(e.target.value)}
             aria-required="true"
             aria-label="Input the data you donated the item to the museum."
           />
-          <button type="submit">Submit</button>
-        </fieldset>
-      </form>
+          <button className="btn" type="submit">
+            Submit
+          </button>
+        </form>
+        <div className="alert">{error}</div>
+      </section>
     );
   }
 }

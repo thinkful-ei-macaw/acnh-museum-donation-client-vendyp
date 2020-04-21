@@ -1,0 +1,33 @@
+ul li {
+    list-style-type: none;
+    
+}
+i{
+    cursor: pointer;
+}
+
+.center{
+    display:flex;
+    justify-content: center;
+}
+
+.backdrop{
+    background-color: white;
+    border-radius: 20px;
+    border:4px gold solid;
+    margin-left:20px;
+    margin-right:20px;
+    position: absolute;
+    left: 11%;
+    width: 71%;
+
+}
+.title-links a{
+    font-size: 18px;
+    font-weight: 900;
+    padding: 10px;
+}
+.title-links a:active, .title-links a:hover, .title-links a:focus {
+color:#517664;
+
+}

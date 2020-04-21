@@ -1,11 +1,12 @@
 import React from "react";
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import Header from "../header/Header";
 import AddItemPage from "../../routes/addItemPage/AddItemPage";
 import MainPage from "../../routes/mainPage/MainPage";
 import LoginPage from "../../routes/loginPage/LoginPage";
 import RegisterPage from "../../routes/registerPage/registerPage";
+
 class App extends React.Component {
   render() {
     return (

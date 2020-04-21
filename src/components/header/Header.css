@@ -1,0 +1,54 @@
+.acnh-title {
+  font-family: Cabin Sketch;
+  background-color: white;
+  border: 5px gold solid;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 20px;
+  text-align: center;
+  font-size:32px;
+  /* padding-left:0;
+  padding-right:0; */
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+nav {
+  background-color: #517664;
+}
+
+a {
+  color: black;
+  cursor: pointer;
+  display: flex;
+  align-items: space-around;
+  text-decoration: none;
+}
+a:hover, a:focus, a:active {
+  color:gold;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .direct {
+        display:flex;
+        flex-direction: column;
+    }
+  }

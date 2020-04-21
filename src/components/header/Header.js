@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import TokenService from "../../services/token-service";
-
+import "./Header.css";
 export default class Header extends React.Component {
 
   
@@ -33,21 +33,31 @@ export default class Header extends React.Component {
       </div>
     )
   }
-
+  renderRegisterLink(){
+    return(
+      <div>
+<Link to="/register">Register</Link>
+      </div>
+    )
+  }
   render() {
-    console.log('rendering...')
+
     return (
       <section>
         <nav>
-          <Link to="/">Home</Link>
-          {TokenService.hasAuthToken() ? this.renderAddItemLink(): ''}
-          {TokenService.hasAuthToken()
+          <ul className="direct">
+          <li><Link to="/">Home</Link></li>
+          <li>{TokenService.hasAuthToken() ? this.renderAddItemLink(): ''}</li>
+          <li>{TokenService.hasAuthToken()
             ? this.renderLogoutLink()
-            : this.renderLoginLink()}
-            <Link to="/register">Register</Link>
+            : this.renderLoginLink()}</li>
+          <li>{TokenService.hasAuthToken()? '': this.renderRegisterLink() } </li>
+          
+           
+           </ul>
         </nav>
         <div>
-          <h1>ACNH: Museum Donation Tracker</h1>
+          <h1 className="acnh-title center">ACNH: Museum Donation Tracker</h1>
         </div>
       </section>
     );

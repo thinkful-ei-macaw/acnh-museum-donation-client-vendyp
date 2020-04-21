@@ -11,7 +11,6 @@ export default class AddItemPage extends React.Component {
         } else{
         return (
             <div>
-                <h1>Add New Item!</h1>
                 <NewItem history={this.props.history}/>
             </div>
         )
