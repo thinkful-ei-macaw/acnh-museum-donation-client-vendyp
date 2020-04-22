@@ -1,11 +1,13 @@
 ul li {
-    list-style-type: none;
-    
+    list-style-type: none;  
 }
 i{
     cursor: pointer;
 }
-
+li{
+    display:flex;
+    align-items: center;
+}
 .center{
     display:flex;
     justify-content: center;
@@ -29,5 +31,17 @@ i{
 }
 .title-links a:active, .title-links a:hover, .title-links a:focus {
 color:#517664;
-
 }
+@media only screen and (min-width: 900px) {
+    .backdrop{
+        background-color: white;
+        border-radius: 20px;
+        border:4px gold solid;
+        max-width: 25%;
+        left: 36%;
+        position: absolute;
+
+    
+    }
+
+  }

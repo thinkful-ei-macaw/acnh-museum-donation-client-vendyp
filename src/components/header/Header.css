@@ -2,19 +2,19 @@
   font-family: Cabin Sketch;
   background-color: white;
   border: 5px gold solid;
-  margin-left: 10px;
-  margin-right: 10px;
   border-radius: 20px;
   text-align: center;
   font-size:32px;
-  /* padding-left:0;
-  padding-right:0; */
+  width:50%;
 }
 .center {
   display: flex;
   justify-content: center;
 }
-
+.color-font{
+    color:white;
+    font-weight: 900;
+}
 nav {
   background-color: #517664;
 }
@@ -25,6 +25,7 @@ a {
   display: flex;
   align-items: space-around;
   text-decoration: none;
+  font-weight: 900;
 }
 a:hover, a:focus, a:active {
   color:gold;
@@ -44,7 +45,6 @@ nav ul li {
   padding: 10px;
   text-align: center;
 }
-
 
 @media only screen and (max-width: 600px) {
     .direct {

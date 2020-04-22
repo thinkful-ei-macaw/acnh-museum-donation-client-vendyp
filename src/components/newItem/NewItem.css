@@ -7,8 +7,8 @@
     background-color: white;
     border-radius: 20px;
     border:4px gold solid;
-    margin-left:20px;
-    margin-right:20px;
+    width: 23%;
+    left: 36.5%;
 }
 .column{
     flex-direction: column;
@@ -22,4 +22,21 @@
 }
 .alert{
     color:red;
+}
+
+.list-height{
+    height:120px;
+}
+.name-select li{
+    cursor: pointer;
+}
+
+.name-select li:hover, .name-select li:focus, .name-select li:active {
+    background: darkseagreen;
+}
+input{
+    margin: 10px;
+}
+label{
+    margin: 10px;
 }

@@ -1,13 +1,28 @@
 import React from "react";
 import config from "../../config";
 import TokenService from "../../services/token-service";
-
+import './NewItem.css';
 export default class NewItem extends React.Component {
   state = {
     name: { value: "" },
     date: { value: "" },
     error: null,
+    possibleItems: [],
+    displaySuggestions: true
   };
+  componentDidMount(){
+    fetch(`${config.API_ENDPOINT}/api/items/getall`,{
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      }
+    })
+      .then(res=>res.json())
+      .then(data=>{
+        this.setState({possibleItems:data})
+      })
+      .catch(e=>console.log(e))
+  }
   handleAddItem(name, date) {
     fetch(`${config.API_ENDPOINT}/api/items`, {
       method: "POST",
@@ -24,23 +39,21 @@ export default class NewItem extends React.Component {
         return res.json();
       })
       .then((resJson) => {
-
-        if(resJson.error){
-          this.setState({ error: resJson.error })
-        }
-        else{
+        if (resJson.error) {
+          this.setState({ error: resJson.error });
+        } else {
           this.props.history.push("/");
         }
-
       })
-      .catch((e) => console.log(e) );
+      .catch((e) => console.log(e));
   }
   updateName(name) {
-    this.setState({ name: { value: name } });
+    this.setState({ name: { value: name },displaySuggestions:true });
   }
   updateDate(date) {
     this.setState({ date: { value: date } });
   }
+  
   validateAddItemForm = (e) => {
     e.preventDefault();
     console.log(this.state.name.value, this.state.date.value);
@@ -51,9 +64,20 @@ export default class NewItem extends React.Component {
       this.handleAddItem(this.state.name, this.state.date);
     }
   };
+
+updateNameWithSelection(selection){
+  this.setState({name:{value:selection},displaySuggestions:false})
+  console.log(selection);
+}
   render() {
+    const autoCompleteMatches = this.state.possibleItems
+      .filter((x) =>
+        x.toLowerCase().includes(this.state.name.value.toLowerCase())
+      )
+      .map((x) => <li onClick={()=>{this.updateNameWithSelection(x)}}>{x}</li>);
+    const checkName = this.state.name.value === "" ? "" : autoCompleteMatches.slice(0,6);
     const error = this.state.error;
-    console.log(error)
+
     return (
       <section className="backdrop">
         <h1 className="centered">Add New Item!</h1>
@@ -69,7 +93,9 @@ export default class NewItem extends React.Component {
             onChange={(e) => this.updateName(e.target.value)}
             aria-required="true"
             aria-label="Input the item you donated."
+            autoComplete="off"
           />
+         <div className="list-height">{this.state.displaySuggestions === true && <ul className="name-select">{checkName}</ul>}</div>
           <label htmlFor="date">Date donated:</label>
           <input
             id="date"

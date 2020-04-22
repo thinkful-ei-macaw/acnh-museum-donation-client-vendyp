@@ -7,7 +7,6 @@ onLoginSuccess=()=>{
 }
     
     render(){
-        console.log(this.props)
         return (
             <div>
                 <LoginForm onLoginSuccess={this.onLoginSuccess} history={this.props.history}/>

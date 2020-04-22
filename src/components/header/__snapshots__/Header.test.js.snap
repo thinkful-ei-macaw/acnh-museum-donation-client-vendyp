@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing renders the UI as expected 1`] = `
+<section>
+  <nav>
+    <ul
+      className="direct"
+    >
+      <li>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        
+      </li>
+      <li>
+        <div>
+          <a
+            href="/login"
+            onClick={[Function]}
+          >
+            Login
+          </a>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a
+            href="/register"
+            onClick={[Function]}
+          >
+            Register
+          </a>
+        </div>
+         
+      </li>
+    </ul>
+  </nav>
+  <div>
+    <h1
+      className="acnh-title center"
+    >
+      ACNH: Museum Donation Tracker
+    </h1>
+  </div>
+</section>
+`;

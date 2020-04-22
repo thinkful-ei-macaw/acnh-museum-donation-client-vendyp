@@ -13,7 +13,7 @@ export default class Header extends React.Component {
   renderLogoutLink() {
     return (
       <div>
-        <Link onClick={this.handleLogoutClick} to="/">
+        <Link onClick={this.handleLogoutClick} to="/" className="color-font">
           Logout
         </Link>
       </div>
@@ -22,21 +22,21 @@ export default class Header extends React.Component {
   renderLoginLink() {
     return (
       <div>
-        <Link to="/login">Login</Link>
+        <Link to="/login" className="color-font">Login</Link>
       </div>
     );
   }
   renderAddItemLink(){
     return(
       <div>
-<Link to="/addItem">Add New Item</Link>
+<Link to="/addItem" className="color-font">Add New Item</Link>
       </div>
     )
   }
   renderRegisterLink(){
     return(
       <div>
-<Link to="/register">Register</Link>
+<Link to="/register" className="color-font">Register</Link>
       </div>
     )
   }
@@ -46,7 +46,7 @@ export default class Header extends React.Component {
       <section>
         <nav>
           <ul className="direct">
-          <li><Link to="/">Home</Link></li>
+          <li><Link to="/" className="color-font">Home</Link></li>
           <li>{TokenService.hasAuthToken() ? this.renderAddItemLink(): ''}</li>
           <li>{TokenService.hasAuthToken()
             ? this.renderLogoutLink()
@@ -56,8 +56,8 @@ export default class Header extends React.Component {
            
            </ul>
         </nav>
-        <div>
-          <h1 className="acnh-title center">ACNH: Museum Donation Tracker</h1>
+        <div className="center">
+          <h1 className="acnh-title">ACNH: Museum Donation Tracker</h1>
         </div>
       </section>
     );

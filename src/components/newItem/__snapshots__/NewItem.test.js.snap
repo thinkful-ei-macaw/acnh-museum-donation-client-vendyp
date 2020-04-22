@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing renders the UI as expected 1`] = `
+<section
+  className="backdrop"
+>
+  <h1
+    className="centered"
+  >
+    Add New Item!
+  </h1>
+  <form
+    className="column centered"
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="item"
+    >
+      Item:
+    </label>
+    <input
+      aria-label="Input the item you donated."
+      aria-required="true"
+      id="item"
+      name="item-name"
+      onChange={[Function]}
+      placeholder="e.g. tiger butterfly"
+      required={true}
+      type="text"
+      value=""
+    />
+    <label
+      htmlFor="date"
+    >
+      Date donated:
+    </label>
+    <input
+      aria-label="Input the data you donated the item to the museum."
+      aria-required="true"
+      id="date"
+      name="date-donated"
+      onChange={[Function]}
+      placeholder="03/20/2020"
+      required={true}
+      type="date"
+      value=""
+    />
+    <button
+      className="btn"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+  <div
+    className="alert"
+  />
+</section>
+`;
