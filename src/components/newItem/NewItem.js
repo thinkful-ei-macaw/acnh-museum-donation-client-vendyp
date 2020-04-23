@@ -42,7 +42,7 @@ export default class NewItem extends React.Component {
         if (resJson.error) {
           this.setState({ error: resJson.error });
         } else {
-          this.props.history.push("/");
+          this.props.history.push("/list");
         }
       })
       .catch((e) => console.log(e));

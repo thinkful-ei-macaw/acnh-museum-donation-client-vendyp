@@ -8,41 +8,40 @@ exports[`renders without crashing renders the UI as expected 1`] = `
     >
       <li>
         <a
+          className="color-font"
           href="/"
           onClick={[Function]}
         >
           Home
         </a>
       </li>
+      
+      
       <li>
-        
+        <a
+          className="color-font"
+          href="/login"
+          onClick={[Function]}
+        >
+          Login
+        </a>
       </li>
       <li>
-        <div>
-          <a
-            href="/login"
-            onClick={[Function]}
-          >
-            Login
-          </a>
-        </div>
-      </li>
-      <li>
-        <div>
-          <a
-            href="/register"
-            onClick={[Function]}
-          >
-            Register
-          </a>
-        </div>
-         
+        <a
+          className="color-font"
+          href="/register"
+          onClick={[Function]}
+        >
+          Register
+        </a>
       </li>
     </ul>
   </nav>
-  <div>
+  <div
+    className="center"
+  >
     <h1
-      className="acnh-title center"
+      className="acnh-title"
     >
       ACNH: Museum Donation Tracker
     </h1>

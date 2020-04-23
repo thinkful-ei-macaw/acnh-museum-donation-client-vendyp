@@ -1,60 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing renders the UI as expected 1`] = `
-<section
+<div
   className="backdrop"
 >
   <h1
     className="centered"
   >
-    Add New Item!
+    Login
   </h1>
   <form
-    className="column centered"
+    className="centered column"
     onSubmit={[Function]}
   >
     <label
-      htmlFor="item"
+      htmlFor="username"
     >
-      Item:
+      Username
     </label>
     <input
-      aria-label="Input the item you donated."
+      aria-label="Login to the website with your username."
       aria-required="true"
-      autoComplete="off"
-      id="item"
-      name="item-name"
+      id="username"
+      name="username"
       onChange={[Function]}
-      placeholder="e.g. tiger butterfly"
+      placeholder="username"
       required={true}
       type="text"
       value=""
     />
-    <div
-      className="list-height"
-    >
-      <ul
-        className="name-select"
-      >
-        
-      </ul>
-    </div>
+    <br />
     <label
-      htmlFor="date"
+      htmlFor="password"
     >
-      Date donated:
+      Password
     </label>
     <input
-      aria-label="Input the data you donated the item to the museum."
+      aria-label="Login to the website with your password."
       aria-required="true"
-      id="date"
-      name="date-donated"
+      id="password"
+      name="password"
       onChange={[Function]}
-      placeholder="03/20/2020"
       required={true}
-      type="date"
+      type="password"
       value=""
     />
+    <br />
     <button
       className="btn"
       type="submit"
@@ -65,5 +56,5 @@ exports[`renders without crashing renders the UI as expected 1`] = `
   <div
     className="alert"
   />
-</section>
+</div>
 `;

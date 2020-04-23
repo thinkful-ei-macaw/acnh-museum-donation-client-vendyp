@@ -49,6 +49,7 @@ export default class RegisterForm extends React.Component {
             onChange={(e) => this.updateUsername(e.target.value)}
           />
           <label htmlFor="password">Password:</label>
+          <span>Password must contain a min of 8 characters and must contain at least one upper case, lower case, number and special character.</span>
           <input
             id="password"
             name="password"

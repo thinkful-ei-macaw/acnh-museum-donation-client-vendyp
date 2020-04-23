@@ -9,86 +9,72 @@ exports[`renders without crashing renders the UI as expected 1`] = `
       >
         <li>
           <a
+            className="color-font"
             href="/"
             onClick={[Function]}
           >
             Home
           </a>
         </li>
+        
+        
         <li>
-          
+          <a
+            className="color-font"
+            href="/login"
+            onClick={[Function]}
+          >
+            Login
+          </a>
         </li>
         <li>
-          <div>
-            <a
-              href="/login"
-              onClick={[Function]}
-            >
-              Login
-            </a>
-          </div>
-        </li>
-        <li>
-          <div>
-            <a
-              href="/register"
-              onClick={[Function]}
-            >
-              Register
-            </a>
-          </div>
-           
+          <a
+            className="color-font"
+            href="/register"
+            onClick={[Function]}
+          >
+            Register
+          </a>
         </li>
       </ul>
     </nav>
-    <div>
+    <div
+      className="center"
+    >
       <h1
-        className="acnh-title center"
+        className="acnh-title"
       >
         ACNH: Museum Donation Tracker
       </h1>
     </div>
   </section>
-  <div
-    className="mainDiv"
+  <section
+    className="centered backdrop"
   >
-    <section
-      className="backdrop"
+    <div>
+      <h2>
+        Welcome to Animal Crossing New Horizons: Museum Donation Tracker
+      </h2>
+    </div>
+    <div
+      className="para"
     >
-      <div
-        className="center title-links"
-      >
-        <a
-          href="#"
-          onClick={[Function]}
-        >
-          Bugs
-        </a>
-        <a
-          href="#"
-          onClick={[Function]}
-        >
-          Fossils
-        </a>
-        <a
-          href="#"
-          onClick={[Function]}
-        >
-          Fish
-        </a>
-        <a
-          href="#"
-          onClick={[Function]}
-        >
-          All
-        </a>
-      </div>
-      <div
-        className="center"
-      >
-        <ul />
-      </div>
-    </section>
-  </div>
+      <p>
+        Please register or login to view contents.
+      </p>
+      <p>
+        Registered users may keep track of all donated items to their museum by adding Fish, Fossils, Bugs and view them per category.
+      </p>
+      <p>
+        Demo user:
+      </p>
+      <p>
+        username: demouser
+      </p>
+      <p>
+        password: 123456!Du
+      </p>
+    </div>
+  </section>
 </div>
 `;

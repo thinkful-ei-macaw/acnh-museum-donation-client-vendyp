@@ -15,6 +15,9 @@ export default class LandingInfo extends React.Component {
             Registered users may keep track of all donated items to their museum
             by adding Fish, Fossils, Bugs and view them per category.
           </p>
+          <p>Demo user:</p>
+          <p>username: demouser</p>
+          <p>password: 123456!Du</p>
         </div>
       </section>
     );

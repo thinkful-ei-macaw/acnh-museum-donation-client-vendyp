@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing renders the UI as expected 1`] = `
+<section
+  className="backdrop"
+>
+  <div
+    className="center title-links"
+  >
+    <a
+      href="#"
+      onClick={[Function]}
+    >
+      Bugs
+    </a>
+    <a
+      href="#"
+      onClick={[Function]}
+    >
+      Fossils
+    </a>
+    <a
+      href="#"
+      onClick={[Function]}
+    >
+      Fish
+    </a>
+    <a
+      href="#"
+      onClick={[Function]}
+    >
+      All
+    </a>
+  </div>
+  <div
+    className="center"
+  >
+    <ul />
+  </div>
+</section>
+`;

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing renders the UI as expected 1`] = `
+<section
+  className="backdrop"
+>
+  <h1
+    className="centered"
+  >
+    Register
+  </h1>
+  <form
+    className="column centered"
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="username"
+    >
+      Username:
+    </label>
+    <input
+      id="username"
+      name="username"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <label
+      htmlFor="password"
+    >
+      Password:
+    </label>
+    <span>
+      Password must contain a min of 8 characters and must contain at least one upper case, lower case, number and special character.
+    </span>
+    <input
+      id="password"
+      name="password"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      className="btn"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+  <div
+    className="alert"
+  />
+</section>
+`;
