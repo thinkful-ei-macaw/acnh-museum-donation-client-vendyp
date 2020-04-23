@@ -6,7 +6,9 @@ import AddItemPage from "../../routes/addItemPage/AddItemPage";
 import MainPage from "../../routes/mainPage/MainPage";
 import LoginPage from "../../routes/loginPage/LoginPage";
 import RegisterPage from "../../routes/registerPage/registerPage";
-
+import LandingInfo from "../../routes/LandingInfo/LandingInfo";
+import PrivateRoute from "../../routes/PrivateRoute/PrivateRoute";
+import LoginRouteOnly from '../../routes/LoginRouteOnly/LoginRouteOnly'
 class App extends React.Component {
   render() {
     return (
@@ -14,9 +16,10 @@ class App extends React.Component {
         
         <Router>
             <Route path="/" component={Header} />
-            <Route exact path={"/"} component={MainPage} />
-            <Route exact path={"/addItem"} component={AddItemPage} />
-            <Route exact path={"/login"} component={LoginPage} />
+            <Route exact path="/" component={LandingInfo} />
+            <PrivateRoute exact path={"/list"} component={MainPage} />
+            <PrivateRoute exact path={"/addItem"} component={AddItemPage} />
+            <LoginRouteOnly exact path={"/login"} component={LoginPage} />
             <Route exact path={"/register"} component={RegisterPage} />
         </Router>
       </div>

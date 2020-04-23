@@ -1,0 +1,32 @@
+.centered{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+.backdrop{
+    background-color: white;
+    border-radius: 20px;
+    border:4px gold solid;
+    margin-left:20px;
+    margin-right:20px;
+    position: absolute;
+    left: 11%;
+    width: 71%;
+
+}
+
+@media only screen and (min-width: 900px) {
+    .backdrop{
+        background-color: white;
+        border-radius: 20px;
+        border:4px gold solid;
+        margin-left:20px;
+        margin-right:20px;
+        position: absolute;
+        left: 36%;
+        width: 71%;
+    
+    }
+  }

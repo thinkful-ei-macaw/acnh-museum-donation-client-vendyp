@@ -63,7 +63,7 @@ export default class LoginForm extends React.Component {
           <label htmlFor="password">Password</label>
           <input
             id="password"
-            type="text"
+            type="password"
             name="password"
             value={this.state.password.value}
             onChange={(e) => this.updatePassword(e.target.value)}

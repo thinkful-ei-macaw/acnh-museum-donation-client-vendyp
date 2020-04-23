@@ -7,51 +7,67 @@ export default class Header extends React.Component {
   
   handleLogoutClick = () => {
     TokenService.clearAuthToken()
-    this.props.history.go('/login')
+    this.props.history.push('/')
   };
 
   renderLogoutLink() {
     return (
-      <div>
-        <Link onClick={this.handleLogoutClick} to="/" className="color-font">
+      <li>
+        <Link onClick={this.handleLogoutClick} className="color-font">
           Logout
         </Link>
-      </div>
+      </li>
     );
   }
   renderLoginLink() {
     return (
-      <div>
+      <li>
         <Link to="/login" className="color-font">Login</Link>
-      </div>
+      </li>
     );
   }
   renderAddItemLink(){
     return(
-      <div>
+      <li>
 <Link to="/addItem" className="color-font">Add New Item</Link>
-      </div>
+      </li>
     )
   }
   renderRegisterLink(){
     return(
-      <div>
+      <li>
 <Link to="/register" className="color-font">Register</Link>
-      </div>
+      </li>
     )
   }
+
+  renderMainPageLink(){
+    return(
+      <li>
+<Link to="/list" className="color-font">Donated Items</Link>
+      </li>
+    )
+  }
+renderHomePageLink(){
+return(
+  <li>
+    <Link to="/" className="color-font">Home</Link>
+  </li>
+)
+}
   render() {
 
     return (
       <section>
         <nav>
           <ul className="direct">
-          <li><Link to="/" className="color-font">Home</Link></li>
-          <li>{TokenService.hasAuthToken() ? this.renderAddItemLink(): ''}</li>
-          <li>{TokenService.hasAuthToken()
+          {TokenService.hasAuthToken() ? '': this.renderHomePageLink()}
+          {TokenService.hasAuthToken() ? this.renderMainPageLink(): ''}
+          {TokenService.hasAuthToken() ? this.renderAddItemLink(): ''}
+          {TokenService.hasAuthToken()
             ? this.renderLogoutLink()
-            : this.renderLoginLink()}</li>
-          <li>{TokenService.hasAuthToken()? '': this.renderRegisterLink() } </li>
+          : this.renderLoginLink()}
+          {TokenService.hasAuthToken()? '': this.renderRegisterLink() }
           
            
            </ul>

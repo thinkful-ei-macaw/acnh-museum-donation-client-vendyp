@@ -2,6 +2,7 @@ import React from "react";
 import config from "../../config";
 import TokenService from '../../services/token-service';
 import "./MainItemList.css";
+
 export default class MainPage extends React.Component {
   state = {
     option: "all",
@@ -81,8 +82,10 @@ export default class MainPage extends React.Component {
                 </span>
               </li>
             ));
+           
     return (
       <section className="backdrop">
+
         <div className="center title-links">
           <a onClick={this.handleDisplayType("Bugs")} href="#">
             Bugs

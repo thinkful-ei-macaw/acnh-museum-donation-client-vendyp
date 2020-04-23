@@ -56,7 +56,7 @@ export default class NewItem extends React.Component {
   
   validateAddItemForm = (e) => {
     e.preventDefault();
-    console.log(this.state.name.value, this.state.date.value);
+ 
     const validName = this.state.name.value;
     const validDate = this.state.date.value;
 
@@ -67,7 +67,7 @@ export default class NewItem extends React.Component {
 
 updateNameWithSelection(selection){
   this.setState({name:{value:selection},displaySuggestions:false})
-  console.log(selection);
+
 }
   render() {
     const autoCompleteMatches = this.state.possibleItems
