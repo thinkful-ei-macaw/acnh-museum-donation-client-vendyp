@@ -74,7 +74,7 @@ updateNameWithSelection(selection){
       .filter((x) =>
         x.toLowerCase().includes(this.state.name.value.toLowerCase())
       )
-      .map((x) => <li onClick={()=>{this.updateNameWithSelection(x)}}>{x}</li>);
+      .map((x,id) => <li key={id+1} onClick={()=>{this.updateNameWithSelection(x)}}>{x}</li>);
     const checkName = this.state.name.value === "" ? "" : autoCompleteMatches.slice(0,6);
     const error = this.state.error;
 

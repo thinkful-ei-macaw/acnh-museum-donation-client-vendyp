@@ -13,7 +13,7 @@ export default class Header extends React.Component {
   renderLogoutLink() {
     return (
       <li>
-        <Link onClick={this.handleLogoutClick} className="color-font">
+        <Link to="/login" onClick={this.handleLogoutClick} className="color-font">
           Logout
         </Link>
       </li>

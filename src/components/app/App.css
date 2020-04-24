@@ -1,9 +1,12 @@
-html, body {min-height: 100%;}
-
 body{
   font-family: Roboto;
-  background-image: url("./acnh-wallpaper.png");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
+
+html { 
+  background: url(./acnh-wallpaper.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

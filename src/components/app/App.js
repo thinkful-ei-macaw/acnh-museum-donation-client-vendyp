@@ -9,6 +9,7 @@ import RegisterPage from "../../routes/registerPage/registerPage";
 import LandingInfo from "../../routes/LandingInfo/LandingInfo";
 import PrivateRoute from "../../routes/PrivateRoute/PrivateRoute";
 import LoginRouteOnly from '../../routes/LoginRouteOnly/LoginRouteOnly'
+import HomePageRouteOnly from "../../routes/HomePageRouteOnly/HomePageRouteOnly";
 class App extends React.Component {
   render() {
     return (
@@ -16,7 +17,7 @@ class App extends React.Component {
         
         <Router>
             <Route path="/" component={Header} />
-            <Route exact path="/" component={LandingInfo} />
+            <HomePageRouteOnly exact path="/" component={LandingInfo} />
             <PrivateRoute exact path={"/list"} component={MainPage} />
             <PrivateRoute exact path={"/addItem"} component={AddItemPage} />
             <LoginRouteOnly exact path={"/login"} component={LoginPage} />
