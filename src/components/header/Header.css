@@ -22,9 +22,9 @@ nav {
 a {
   color: black;
   cursor: pointer;
-  display: flex;
   align-items: space-around;
   text-decoration: none;
+  text-align: center;
   font-weight: 900;
 }
 a:hover, a:focus, a:active {

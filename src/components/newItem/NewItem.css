@@ -19,6 +19,9 @@
     background-color:cadetblue;
     margin-bottom:10px;
     margin-top:10px;
+    color: white;
+    padding: 20px;
+    font-size: 25px;
 }
 .alert{
     color:red;

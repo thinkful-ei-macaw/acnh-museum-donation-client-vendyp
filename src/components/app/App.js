@@ -13,7 +13,7 @@ import HomePageRouteOnly from "../../routes/HomePageRouteOnly/HomePageRouteOnly"
 class App extends React.Component {
   render() {
     return (
-      <div>
+      
         
         <Router>
             <Route path="/" component={Header} />
@@ -23,7 +23,7 @@ class App extends React.Component {
             <LoginRouteOnly exact path={"/login"} component={LoginPage} />
             <Route exact path={"/register"} component={RegisterPage} />
         </Router>
-      </div>
+      
     );
   }
 }

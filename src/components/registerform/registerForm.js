@@ -20,7 +20,6 @@ export default class RegisterForm extends React.Component {
       .then((res) => {
         username.value = "";
         password.value = "";
-        TokenService.saveAuthToken(res.authToken);
         this.props.onRegisterSuccess();
       })
       .catch((res) => {
@@ -45,6 +44,7 @@ export default class RegisterForm extends React.Component {
             id="username"
             name="username"
             type="text"
+            autoComplete="off"
             value={this.state.username.value}
             onChange={(e) => this.updateUsername(e.target.value)}
           />
@@ -53,7 +53,8 @@ export default class RegisterForm extends React.Component {
           <input
             id="password"
             name="password"
-            type="text"
+            type="password"
+            autoComplete="off"
             value={this.state.password.value}
             onChange={(e) => this.updatePassword(e.target.value)}
           />

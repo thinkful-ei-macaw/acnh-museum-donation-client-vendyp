@@ -17,12 +17,8 @@ li{
     background-color: white;
     border-radius: 20px;
     border:4px gold solid;
-    margin-left:20px;
-    margin-right:20px;
-    position: absolute;
-    left: 11%;
-    width: 71%;
-
+    width: 80%;
+    max-width: 400px;
 }
 .title-links a{
     font-size: 18px;
@@ -32,14 +28,20 @@ li{
 .title-links a:active, .title-links a:hover, .title-links a:focus {
 color:#517664;
 }
+.item-list{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.nameItem{
+    padding: 0 20px;
+}
 @media only screen and (min-width: 900px) {
     .backdrop{
         background-color: white;
         border-radius: 20px;
         border:4px gold solid;
-        max-width: 25%;
-        left: 36%;
-        position: absolute;
+
 
     
     }

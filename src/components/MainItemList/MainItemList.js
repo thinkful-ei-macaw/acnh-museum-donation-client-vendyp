@@ -65,8 +65,9 @@ export default class MainPage extends React.Component {
     const data =
       this.state.option === "all"
         ? this.state.items.map((x) => (
-            <li key={x.id}>
-              <img  alt={x.name} src={`${config.API_ENDPOINT}/static/img/${x.img}`} /> {x.name} {x.date.split('T')[0]}{" "}
+            <li className="item-list" key={x.id}>
+              <img  alt={x.name} src={`${config.API_ENDPOINT}/static/img/${x.img}`} /> 
+              <span className="nameItem">{x.name} {x.date.split('T')[0]}{" "}</span> 
               <span onClick={(e) => this.handleDeleteRequest(e,x.id)}>
                 <i className="fa fa-trash"></i>
               </span>
@@ -75,9 +76,10 @@ export default class MainPage extends React.Component {
         : this.state.items
             .filter((m) => m.type === this.state.option)
             .map((x) => (
-              <li key={x.id}>
-                <img alt={x.name} src={`${config.API_ENDPOINT}/static/img/${x.img}`} /> {x.name} {x.date.split('T')[0]}{" "}
-                <span onClick={(e) => this.handleDeleteRequest(e,x.id)}>
+              <li className="item-list" key={x.id}>
+                <img alt={x.name} src={`${config.API_ENDPOINT}/static/img/${x.img}`} /> 
+                <span className="nameItem">{x.name} {x.date.split('T')[0]}{" "}</span> 
+                <span className="deleteItem" onClick={(e) => this.handleDeleteRequest(e,x.id)}>
                   <i className="fa fa-trash"></i>
                 </span>
               </li>

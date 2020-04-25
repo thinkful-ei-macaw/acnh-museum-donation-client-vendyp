@@ -56,6 +56,7 @@ export default class LoginForm extends React.Component {
             value={this.state.username.value}
             onChange={(e) => this.updateUsername(e.target.value)}
             required
+            autoComplete="off"
             aria-required="true"
             aria-label="Login to the website with your username."
           />
@@ -68,6 +69,7 @@ export default class LoginForm extends React.Component {
             value={this.state.password.value}
             onChange={(e) => this.updatePassword(e.target.value)}
             required
+            autoComplete="off"
             aria-required="true"
             aria-label="Login to the website with your password."
           />
