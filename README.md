@@ -4,6 +4,13 @@ ACNH:Museum Donation Tracker
 Link to website:
 https://capstone-one-vp.now.sh/
 
+Intended audience:
+Users who play Nintendo Switch's Animal Crossing:New Horizons.
+
+Problem:
+There is no way to know what items a user has donated to the museum, but to go up to each item in the many rooms to see what and when the user has donated the item.
+Solution:
+As a fan of planning/tracking, I was inspired to create this app to help me keep track of what I have donated instead of keeping track on paper or a spreadsheet.
 
 Summary:
 User is able to GET,POST,DELETE.
