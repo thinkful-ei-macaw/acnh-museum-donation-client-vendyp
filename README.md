@@ -13,7 +13,6 @@ There is no way to know what items a user has donated to the museum, but to go u
 Solution:
 As a fan of planning/tracking, I was inspired to create this app to help me keep track of what I have donated instead of keeping track on paper or a spreadsheet. 
 
-Pictures to help guide a new user:
 ![Landing page, with a demo user account](https://github.com/thinkful-ei-macaw/acnh-museum-donation-client-vendyp/blob/master/public/images/img1.png?raw=true)
 ![Login page](https://github.com/thinkful-ei-macaw/acnh-museum-donation-client-vendyp/blob/master/public/images/img2.png?raw=true)
 ![After logging in will see items page, with filled items if had already added items](https://github.com/thinkful-ei-macaw/acnh-museum-donation-client-vendyp/blob/master/public/images/img3.png?raw=true)
